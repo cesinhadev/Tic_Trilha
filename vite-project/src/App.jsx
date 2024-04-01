@@ -1,4 +1,4 @@
-import { Cabecalho, Conteudo } from './components'
+import { Cabecalho, Conteudo, Rotape } from './components'
 import './App.css'
 
 const App = () => {
@@ -6,11 +6,13 @@ const App = () => {
 
   return (
     <>
-    <Cabecalho nomeUsuario="João"/>
+    <Cabecalho/>
     <Conteudo>
         <h1>Titulo</h1>
         <p>Texto , Texto , Texto</p>
     </Conteudo>
+    <Rotape criador="Cesar"/>
+
     </>
    
   )
