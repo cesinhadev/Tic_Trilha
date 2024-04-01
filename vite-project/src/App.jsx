@@ -1,4 +1,4 @@
-import { Cabecalho } from './components'
+import { Cabecalho, Conteudo } from './components'
 import './App.css'
 
 const App = () => {
@@ -6,8 +6,11 @@ const App = () => {
 
   return (
     <>
-    <h1>Hello World</h1>
-    <Cabecalho/>
+    <Cabecalho nomeUsuario="João"/>
+    <Conteudo>
+        <h1>Titulo</h1>
+        <p>Texto , Texto , Texto</p>
+    </Conteudo>
     </>
    
   )
