@@ -1,5 +1,5 @@
-import './App.css'
 import { Cabecalho } from './components'
+import './App.css'
 
 const App = () => {
   
