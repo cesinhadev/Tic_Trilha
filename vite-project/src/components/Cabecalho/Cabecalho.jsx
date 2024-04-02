@@ -12,7 +12,7 @@ const Cabecalho = () => {
             </h1>
             </Link>
 
-            <Link to="/SobreNos">Sobre Nos</Link>
+            <Link to="/SobreNos">Sobre Nós</Link>
         </div>
     );
 };

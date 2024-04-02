@@ -1,13 +1,16 @@
-import { Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 
 import { Inicial, SobreNos } from './pages';
+import { LayoutPadrao } from './layouts';
 
 
 const Router = () => {
     return(
         <Routes>
-            <Route path="/" element={ <Inicial/> }/>
-            <Route path="/sobreNos" element={ <SobreNos/> }/>
+            <Route path='/' element={<LayoutPadrao/>}>    
+                <Route path="/" element={ <Inicial/> }/>
+                <Route path="/SobreNos" element={ <SobreNos/> }/>
+            </Route>
         </Routes>
     );
 };

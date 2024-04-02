@@ -18,11 +18,7 @@ const App = () => {
     </BrowserRouter>
     /*
     
-    <Cabecalho/>
-    <Conteudo>
-        <Inicial/>
-    </Conteudo>
-    <Rotape criador="Cesar"/>
+    
 
     
    */
