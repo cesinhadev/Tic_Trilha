@@ -1,0 +1,20 @@
+.Error404{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+
+.Error404 h1{
+    position: absolute;
+    bottom: 59%;
+    color: var(--pink);
+
+}
+.Error404 h2{
+    position: absolute;
+    bottom: 53%;
+    
+
+}

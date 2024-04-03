@@ -1,7 +1,8 @@
 import { Route, Routes } from 'react-router-dom';
 
-import { Inicial, SobreNos } from './pages';
+import { Inicial, SobreNos, Error404 } from './pages';
 import { LayoutPadrao } from './layouts';
+;
 
 
 const Router = () => {
@@ -10,7 +11,9 @@ const Router = () => {
             <Route path='/' element={<LayoutPadrao/>}>    
                 <Route path="/" element={ <Inicial/> }/>
                 <Route path="/SobreNos" element={ <SobreNos/> }/>
+                <Route path='*' element={<Error404/>}/>
             </Route>
+            
         </Routes>
     );
 };
