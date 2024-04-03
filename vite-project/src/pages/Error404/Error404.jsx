@@ -1,4 +1,4 @@
-/* Desafio em ciar uma pagina de Error personalizada*/ 
+/* Desafio em criar uma pagina de Error personalizada*/ 
 
 import style from './Error404.module.css';
 const Error404 = () =>{
