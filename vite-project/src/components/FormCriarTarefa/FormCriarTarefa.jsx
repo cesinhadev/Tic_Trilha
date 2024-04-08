@@ -3,42 +3,34 @@ import { useState } from "react";
 import { Botao, CampoTexto } from "../../components";
 
 import style from "./FormCriarTarefa.module.css";
+import { useAppContext } from "../../hooks";
 
-const FormCriarTarefa = (props) => {
+const FormCriarTarefa = () => {
+
+    const { adicionarTarefa } = useAppContext();
 
     const [nomeTarefa, setNomeTarefa] = useState('');
 
-    const { setTarefas } = props;
+  
 
     const atualizarNome = (event) => {
         setNomeTarefa(event.currentTarget.value)
     };
 
-    const adicionarTarefa = (event) => {
+    const submeterFormulario = (event) => {
         event.preventDefault();
 
         if(!nomeTarefa){
             return;
         }
 
-        setTarefas(estatoAtual => {
-            const tarefa = {
-                id: estatoAtual.length + 1,
-                nome: nomeTarefa,
-            };
-
-            return [
-                ...estatoAtual,
-                tarefa,
-
-            ];
-        });
+        adicionarTarefa(nomeTarefa);        
 
         setNomeTarefa('');
     };
 
     return(
-        <form className={style.FormCriarTarefa} onSubmit={adicionarTarefa}>
+        <form className={style.FormCriarTarefa} onSubmit={submeterFormulario}>
             <CampoTexto 
              value={nomeTarefa} 
              onChange={atualizarNome}
