@@ -28,7 +28,7 @@ export const AppContextProvider = (props) => {
 
             ];
         });
-    }
+    };
 
     const removerTarefa = (idTarefa) =>{
             setTarefas(estatoAtual => {
@@ -41,7 +41,20 @@ export const AppContextProvider = (props) => {
             });
     };
 
+    const editarTarefa = (idTarefa, nome) => {
+        setTarefas(estatoAtual => {
+            const tarefasAtualizadas = estatoAtual.map(tarefa =>{
+                return tarefa.id == idTarefa ? {
+                    ...tarefa,
+                    nome:nome,
+                } : tarefa;
+            });
 
+            return [
+                ...tarefasAtualizadas,
+            ];
+        });
+    };
 
 
     return(
@@ -50,6 +63,7 @@ export const AppContextProvider = (props) => {
             tarefas,
             adicionarTarefa,
             removerTarefa,
+            editarTarefa,
         }}>
 
             {children}
