@@ -1,4 +1,5 @@
-import { createContext, useState } from 'react';
+import { createContext, useEffect, useState } from 'react';
+import { api } from '../services';
 
 export const AppContext = createContext({});
 
@@ -7,30 +8,37 @@ export const AppContextProvider = (props) => {
 
     const [criador, setCriador]   = useState('Cesar');
 
-    const [tarefas, setTarefas] = useState([
-        {id: 1, nome:"Item 1"},
-        {id: 2, nome:"Item 2"},
-        {id: 3, nome:"Item 3"},
-    ]);
+    const [tarefas, setTarefas] = useState([]);
+
+    const carregarTarefas = async () => {
+        const {data = []} = await api.get('/Tarefas');
+        
+        setTarefas([
+            ...data,
+        ]);
+    };
 
 
 
-    const adicionarTarefa = (nomeTarefa) =>{
+    const adicionarTarefa = async(nomeTarefa) =>{
+        const { data: tarefa } = await api.post('/Tarefas', {
+            nome: nomeTarefa,
+        });
+        
+        
         setTarefas(estatoAtual => {
-            const tarefa = {
-                id: estatoAtual.length + 1,
-                nome: nomeTarefa,
-            };
-
             return [
                 ...estatoAtual,
                 tarefa,
 
             ];
         });
-    };
+    }
 
-    const removerTarefa = (idTarefa) =>{
+    const removerTarefa = async(idTarefa) =>{
+
+        await api.delete(`Tarefas/${idTarefa}`);
+
             setTarefas(estatoAtual => {
                 const tarefasAtualizadas = estatoAtual.filter(tarefa => tarefa.id != idTarefa);
 
@@ -41,12 +49,18 @@ export const AppContextProvider = (props) => {
             });
     };
 
-    const editarTarefa = (idTarefa, nome) => {
+    const editarTarefa = async (idTarefa, nome) => {
+        const {data: tarefaAtualizada} = await api.put(`Tarefas/${idTarefa}`,{
+           nome: nome, 
+        });
+        
+        
+        
         setTarefas(estatoAtual => {
             const tarefasAtualizadas = estatoAtual.map(tarefa =>{
                 return tarefa.id == idTarefa ? {
                     ...tarefa,
-                    nome:nome,
+                    nome:tarefaAtualizada.nome,
                 } : tarefa;
             });
 
@@ -55,6 +69,11 @@ export const AppContextProvider = (props) => {
             ];
         });
     };
+
+
+    useEffect(() => {
+        carregarTarefas();
+    },[]);
 
 
     return(
