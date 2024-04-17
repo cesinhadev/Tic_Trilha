@@ -7,7 +7,7 @@ const Rotape = (props) => {
     return(
         <div className={style.Rotape}>
             <footer>
-                <p>React Basico - 2024 - {criador}</p>
+                <p>React Basico - {Ano} - {criador}</p>
             </footer>
         </div>
     )
