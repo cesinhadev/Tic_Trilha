@@ -1,6 +1,11 @@
+import style from './SobreNos.module.css';
+
 const SobreNos = () => {
     return(
-        <h1>Sobre Nos</h1>
+        <div className={style.SobreNos}>
+            <h1>Sobre Nós</h1>
+        </div>
+        
     )
 };
 

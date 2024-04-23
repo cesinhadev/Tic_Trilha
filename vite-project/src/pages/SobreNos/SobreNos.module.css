@@ -1,0 +1,10 @@
+.SobreNos{
+    align-items: center;
+    display: flex;
+    height: 5.5rem;
+    justify-content: center;
+}
+
+.SobreNos h1{
+    font-family: var(--Roboto);
+}
