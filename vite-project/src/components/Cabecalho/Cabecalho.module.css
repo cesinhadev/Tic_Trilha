@@ -13,9 +13,15 @@
 }
 
 .Cabecalho h1{
-    font-size: 1.4rem;
+    font-size: 1.5rem;
+    margin-left: .8rem;
 }
 
 .Cabecalho h1 span{
     color: var(--pink);
+    transition: 1s;
+}
+
+.Cabecalho h1 span:hover{
+    color: var(--gray);
 }
