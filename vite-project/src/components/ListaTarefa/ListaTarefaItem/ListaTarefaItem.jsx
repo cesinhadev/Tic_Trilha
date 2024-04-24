@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useAppContext } from '../../../hooks';
 import { Botao, CampoTexto, TIPO_BOTAO } from '../../../components';
+import { MdDelete } from 'react-icons/md';
 import style from './ListaTarefaItem.module.css';
 
 
@@ -27,7 +28,7 @@ const ListaTarefaItem = (props) => {
             </span>
         )}
         <Botao 
-        texto="-" 
+        texto={<MdDelete/>} 
         tipo={TIPO_BOTAO.SECUNDARIO}
         onClick = {() => removerTarefa(id)}
         />
