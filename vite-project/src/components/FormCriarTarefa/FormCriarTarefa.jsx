@@ -4,6 +4,7 @@ import { Botao, CampoTexto } from "../../components";
 
 import style from "./FormCriarTarefa.module.css";
 import { useAppContext } from "../../hooks";
+import{ MdAddBox } from 'react-icons/md';
 
 const FormCriarTarefa = () => {
 
@@ -21,6 +22,7 @@ const FormCriarTarefa = () => {
         event.preventDefault();
 
         if(!nomeTarefa){
+            alert("Por favor inserir um titulo para tarefa")
             return;
         }
 
@@ -35,7 +37,7 @@ const FormCriarTarefa = () => {
              value={nomeTarefa} 
              onChange={atualizarNome}
             />
-            <Botao texto=" + "/>
+            <Botao texto={<MdAddBox/>}/>
         </form>
     )
 }
