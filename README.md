@@ -1,6 +1,6 @@
 
 <h1>Project ToDo List </h1>
-Para Acessar o Projeto: https://cesinhalius-todo-list.vercel.app/ 
+Para Acessar o projeto use o link da descrição 
 
 
 <h2>Using</h2>
